@@ -1,20 +1,21 @@
 import Fastify, { FastifyInstance} from 'fastify';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 class App {
     private static app: FastifyInstance | null = null;
     private static running: boolean = false;
 
     public initInstance(): FastifyInstance {
-        if(App.app) return App.app; 
         App.app = Fastify({ logger: true });
         return App.app;
     }
     public async initServer(): Promise<void> {
         if(!App.app) return;
         if(App.running) return;
-        try {
-            await App.app.listen({ port: 3000 });
-            console.log(`Servidor está rodando em http://localhost:3000`);
+        try { 
+            const port: number = Number(process.env.PORT) || 3000;
+            await App.app.listen({ port });
+            console.log(`Servidor está rodando em http://localhost:${port}`);
             this.setRunning(true);
         } catch (err) {
             console.log(err)
