@@ -1,6 +1,6 @@
 import { Socket, Server } from "socket.io";
 import randomIdMessage from "../../domain/functions/randomIdMessage";
-class sendMessage {
+class SendMessage {
     constructor(private readonly socket: Socket, private readonly io: Server) {}
 
     public initConnection(): void {
@@ -11,4 +11,4 @@ class sendMessage {
         });
     }
 }
-export default sendMessage;
+export default SendMessage;

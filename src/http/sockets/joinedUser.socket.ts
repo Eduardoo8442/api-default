@@ -1,5 +1,5 @@
 import { Socket, Server } from "socket.io";
-class joinedUser {
+class JoinedUser {
     constructor(private readonly socket: Socket, private readonly io: Server) {}
 
     public initConnection(): void {
@@ -10,4 +10,4 @@ class joinedUser {
         });
     }
 }
-export default joinedUser;
+export default JoinedUser;

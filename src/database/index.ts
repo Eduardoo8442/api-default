@@ -7,7 +7,7 @@ class Database {
     constructor(private readonly connection: any) {}
     
 
-    public getInstance(): any {
+    public getInstance(): Connection {
         if(!Database.database) throw new Error('A database ainda não foi instanciada!');
         return Database.database;
     }

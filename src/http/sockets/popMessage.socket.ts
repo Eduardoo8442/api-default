@@ -1,5 +1,5 @@
 import { Socket, Server } from "socket.io";
-class popMessage {
+class PopMessage {
     constructor(private readonly socket: Socket, private readonly io: Server) {}
 
     public initConnection(): void {
@@ -10,4 +10,4 @@ class popMessage {
         });
     }
 }
-export default popMessage;
+export default PopMessage;

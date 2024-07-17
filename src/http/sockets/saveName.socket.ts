@@ -1,5 +1,5 @@
 import { Socket } from "socket.io";
-class saveName {
+class SaveName {
     constructor(private readonly socket: Socket) {}
 
     public initConnection(): void {
@@ -8,4 +8,4 @@ class saveName {
         });
     }
 }
-export default saveName;
+export default SaveName;
