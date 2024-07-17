@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose, { Connection } from 'mongoose';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
 class Database {
-    private static database: any;
+    private static database: Connection;
     constructor(private readonly connection: any) {}
     
 
@@ -15,9 +15,10 @@ class Database {
     public async initInstance(): Promise<void> {
         try {
             if(Database.database) {
-                console.log('Servidor já conectado à database');
+                console.log('Servidor já conectado à database');    
             } else {
-                Database.database = await mongoose.connect(this.connection, {});
+                const mongooseInstance = await mongoose.connect(this.connection, {});
+                Database.database = mongooseInstance.connection;
                 console.log('Servidor conectado à database');
             }
           } catch (err) {
