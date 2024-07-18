@@ -17,7 +17,7 @@ class SocketApp {
 
         const options: Partial<ServerOptions> = {
             cors: {
-                origin: process.env.FRONTEND || 'http://localhost:3000',
+                origin: 'http://localhost:3000',
                 methods: ["GET", "POST"]
             }
         };

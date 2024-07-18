@@ -1,5 +1,6 @@
 import Fastify, { FastifyInstance} from 'fastify';
 import * as dotenv from 'dotenv';
+import cors from './services/cors';
 dotenv.config();
 class App {
     private static app: FastifyInstance | null = null;
@@ -14,6 +15,7 @@ class App {
         if(App.running) return;
         try { 
             const port: number = Number(process.env.PORT) || 3000;
+            cors.initCors(App.app);
             await App.app.listen({ port });
             console.log(`Servidor está rodando em http://localhost:${port}`);
             this.setRunning(true);
