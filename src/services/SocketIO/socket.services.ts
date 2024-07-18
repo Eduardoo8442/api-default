@@ -1,6 +1,7 @@
 import { Server as SocketIOServer, ServerOptions } from 'socket.io';
 import app from '../../app';
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 
 class SocketApp {
@@ -11,11 +12,12 @@ class SocketApp {
     getInstance(): SocketIOServer {
         if (SocketApp.io) return SocketApp.io;
         
-        const server = app.initInstance().server;
+        const fastifyInstance = app.initInstance();
+        const server = fastifyInstance.server;
 
         const options: Partial<ServerOptions> = {
             cors: {
-                origin: process.env.FRONTEND,
+                origin: process.env.FRONTEND || 'http://localhost:3000',
                 methods: ["GET", "POST"]
             }
         };
@@ -25,4 +27,5 @@ class SocketApp {
         return SocketApp.io;
     }
 }
+
 export default SocketApp;

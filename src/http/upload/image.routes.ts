@@ -2,7 +2,6 @@ import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
 import multerInstance from "../../services/multer/services.multer";
 
 
-
 class ImageRoute {
 constructor(private readonly instance: FastifyInstance) {}
 
@@ -19,3 +18,4 @@ public initConnection(instance: FastifyInstance): void {
     });
 }
 }
+export default ImageRoute;
