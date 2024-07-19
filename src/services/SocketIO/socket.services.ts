@@ -18,12 +18,11 @@ class SocketApp {
         const options: Partial<ServerOptions> = {
             cors: {
                 origin: 'http://localhost:3000',
-                methods: ["GET", "POST"]
+                methods: ['GET', 'POST']
             }
         };
 
         SocketApp.io = new SocketIOServer(server, options);
-        
         return SocketApp.io;
     }
 }

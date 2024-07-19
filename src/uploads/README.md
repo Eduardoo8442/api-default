@@ -1,1 +1,1 @@
-aqui armazenará os arquivos enviados para o servidor
+Pasta onde armazenará as fotos de perfil dos usuários.

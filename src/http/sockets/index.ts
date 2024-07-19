@@ -5,8 +5,9 @@ import PopMessage from "./popMessage.socket";
 import SaveName from "./saveName.socket";
 import SendMessage from "./sendMessage.socket";
 import ListUser from "./listUsers.socket";
-const io = new SocketApp().getInstance();
+
 export default function socketsInit(): void {
+    const io = new SocketApp().getInstance();
     io.on('connection', (socket) => {
          new JoinedUser(socket, io).initConnection();
          new PopMessage(socket, io).initConnection();
